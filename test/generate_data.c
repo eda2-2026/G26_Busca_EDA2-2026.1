@@ -6,11 +6,10 @@ int main() {
 
     f = fopen("books.txt", "w");
 
-    for(int i = 1; i <= 300; i++) {
+    for(int i = 1; i <= 10; i++) {
 
         fprintf(f,
-            "%d;Livro %d;Autor %d;%ld\n",
-            i,
+            "Livro %d;Autor %d;%ld\n",
             i,
             i % 20,
             9780000000000 + i
