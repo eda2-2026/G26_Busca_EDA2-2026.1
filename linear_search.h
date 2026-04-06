@@ -3,47 +3,24 @@
 
 # include "global_types.h"
 
-void buscaLinear(char *filename, const char *tituloAlvo) {
-    // for (int i = 0; i < n; i++) {
-    //     if (strcmp(livros[i].titulo, tituloAlvo) == 0) {
-    //         return i;
-    //     }
-    // }
+int buscaLinear(TitleIndex *title_array, int n, const char *tituloAlvo) {
+    for (int i = 0; i < n; i++) {
 
-    FILE *f;
-    f = fopen(filename, "r");
-    
-    if(f == NULL){
-        printf("Nada encontrado.\n");
-        return;
-    }
-
-    char linha[300];
-    char titulo[100], autor[100], isbn[15];
-
-    while (fgets(linha, sizeof(linha), f)) {
-        sscanf(linha, "%[^;];%[^;];%s",
-               titulo, autor, isbn);
-        if(strcmp(titulo, tituloAlvo) == 0){
-            printf("Encontrado!\n%s\n%s\n%s\n", titulo, autor, isbn);
-            fclose(f);
-            return;
+        if (strcmp(title_array[i].titulo, tituloAlvo) == 0) {
+            return i;
         }
     }
-
-    fclose(f);
-
-    printf("Nada encontrado.\n");
+    return -1;
 }
 
-int buscaSentinelaOffset(isbnIndex *isbn_array, int n, const char *isbnAlvo) {
-    strcpy(isbn_array[n].isbn, isbnAlvo); 
+int buscaSentinelaOffset(TitleIndex *title_array, int n, const char *tituloAlvo) {
+    strcpy(title_array[n].titulo, tituloAlvo); 
     int i = 0;
-    while (strcmp(isbn_array[i].isbn, isbnAlvo) != 0) {
+    while (strcmp(title_array[i].titulo, tituloAlvo) != 0) {
         i++;
     }
     if (i < n) {
-        return isbn_array[i].offset; 
+        return title_array[i].offset; 
     }
     return -1; 
 }
