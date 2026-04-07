@@ -5,7 +5,7 @@ Conteúdo da Disciplina: Busca Sequencial
 ## Alunos
 |Matrícula | Aluno |
 | 222006490 | Vinícius de Jesus Bessa Fernandes |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 202017049  |  Pedro Lucas Figueiredo Santana |
 
 ## Sobre 
 O projeto é um menu de adição, remoção e busca de livros;
