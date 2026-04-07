@@ -25,3 +25,6 @@ gcc main.c -o main
 ./main
 
 Siga os passos indicados pelo terminal;
+
+## Vídeo Explicando PROJETO:
+[Vídeo Explicando o Projeto - YouTube](https://youtu.be/RfvAWosSif8)

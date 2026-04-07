@@ -4,7 +4,9 @@
 
 void removeBook(char *filename, isbnIndex *isbn_array, int n, char *isbnAlvo){
     int toBeRemoved = buscaSentinela(isbn_array, n, isbnAlvo);
-    isbn_array[toBeRemoved];
+    if (toBeRemoved < 0) {
+        return;
+    }
 
     FILE *f1, *f2;
     f1 = fopen("swap.txt", "w");
