@@ -1,11 +1,27 @@
-A busca será feira em uma lista de tamanho 300;
+# Simulação Busca de Livros
 
-Busca sequencial normal será feita considerando o título;
-Terá uma versão alternativa com sentinela;
+Conteúdo da Disciplina: Busca Sequencial
 
-Terá opção de mover-para-frente e transposição;
-Apenas uma pode ser usada;
+## Alunos
+|Matrícula | Aluno |
+| 222006490 | Vinícius de Jesus Bessa Fernandes |
+| xx/xxxxxx  |  xxxx xxxx xxxxx |
 
-Número ISBN é usado como índice primário;
+## Sobre 
+O projeto é um menu de adição, remoção e busca de livros;
+O projeto inicia, após gerar os dados iniciais, mapear os índices por
+ISBN, título e autor;
 
-Autores e categorias podem ser usadas como índices secundários;
+## Screenshots
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+## Instalação e uso
+Linguagem: C
+
+Inicie com:
+gcc main.c -o main
+./main
+
+Siga os passos indicados pelo terminal;

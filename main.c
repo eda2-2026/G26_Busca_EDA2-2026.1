@@ -88,8 +88,6 @@ int main (){
 
     count = getIndexes(DATA, isbn_array, author_array, title_array);
 
-    imprimirTitleIndex(title_array, count);
-
     menu(greaterISBN, isbn_array, title_array, count);
 
     return 0;
