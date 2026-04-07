@@ -8,6 +8,7 @@
 # include "refresh_append.h"
 # include "get_indexes.h"
 # include "linear_search.h"
+# include "remove_book.h" 
 
 # define DATA "books.txt" 
 # define SIZE 300
@@ -24,11 +25,11 @@ int checkExists(){
 void menu(long greaterISBN, isbnIndex *isbn_array, TitleIndex *title_array, int n){
     int option;
     char prompt[50];
-    int offset;
+    int index;
     
     while(option != 4){
         printf("Bem vindo à Busca de Livros!\nSelecione uma operação:\n");
-        printf("1- Inserir Livro\n2- Buscar Sequencial\n3- Buscar com Sentinela\n4- Sair\n");
+        printf("1- Inserir Livro\n2- Buscar Sequencial\n3- Buscar com Sentinela\n4- Remover Livro\n5- Sair\n");
         scanf("%d", &option);
         getchar();
 
@@ -39,25 +40,30 @@ void menu(long greaterISBN, isbnIndex *isbn_array, TitleIndex *title_array, int 
             addBook(DATA, greaterISBN);
             break;
         case 2:
-            printf("Digite o título do livro:\n");
-            scanf("%49[^\n]%*c", prompt);
+            printf("Digite o código do livro:\n");
+            scanf("%15[^\n]%*c", prompt);
 
-            printf("%d\n", buscaLinear(title_array, n, prompt));
+            printf("%d\n", buscaLinear(isbn_array, n, prompt));
             prompt[0] = '\0';
             
             break;
         case 3:
-            printf("Digite o título do livro:\n");
+            printf("Digite o código do livro:\n");
             scanf("%15[^\n]%*c", prompt);
 
-            offset = buscaSentinelaOffset(title_array, n, prompt);
-            printf("%d\n", offset);
+            index = buscaSentinela(isbn_array, n, prompt);
+            printf("%d\n", index);
             // readByOffset(offset);
 
             prompt[0] = '\0';
             
             break;
-        case 4: 
+        case 4:
+            printf("Digite o código do livro:\n");
+            scanf("%15[^\n]%*c", prompt);
+
+            removeBook(DATA, isbn_array, n, prompt);
+        case 5: 
             return;
         default:
             printf("Opção inválida! Selecione opção válida\n");

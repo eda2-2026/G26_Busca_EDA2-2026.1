@@ -1,26 +1,31 @@
+#ifndef LINEAR_SEARCH_H
+#define LINEAR_SEARCH_H
+
 #include <stdio.h>
 #include <string.h>
 
 # include "global_types.h"
 
-int buscaLinear(TitleIndex *title_array, int n, const char *tituloAlvo) {
+int buscaLinear(isbnIndex *isbn_array, int n, const char *isbnAlvo) {
     for (int i = 0; i < n; i++) {
 
-        if (strcmp(title_array[i].titulo, tituloAlvo) == 0) {
+        if (strcmp(isbn_array[i].isbn, isbnAlvo) == 0) {
             return i;
         }
     }
     return -1;
 }
 
-int buscaSentinelaOffset(TitleIndex *title_array, int n, const char *tituloAlvo) {
-    strcpy(title_array[n].titulo, tituloAlvo); 
+int buscaSentinela(isbnIndex *isbn_array, int n, const char *isbnAlvo) {
+    strcpy(isbn_array[n].isbn, isbnAlvo); 
     int i = 0;
-    while (strcmp(title_array[i].titulo, tituloAlvo) != 0) {
+    while (strcmp(isbn_array[i].isbn, isbnAlvo) != 0) {
         i++;
     }
     if (i < n) {
-        return title_array[i].offset; 
+        return i;
     }
     return -1; 
 }
+
+#endif
