@@ -1,6 +1,9 @@
+#ifndef GENERATE_DATA_H
+#define GENERATE_DATA_H
+
 #include <stdio.h>
 
-void generateData() {
+void generateData(void) {
 
     FILE *f;
 
@@ -19,3 +22,4 @@ void generateData() {
     fclose(f);
 }
 
+#endif
