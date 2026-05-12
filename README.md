@@ -1,28 +1,45 @@
-# Simulação de Busca e Ordenação de Livros
+# Simulacao de Busca e Ordenacao de Livros
 
-Conteúdo da Disciplina:
-- Busca Sequencial
-- Ordenação de Registros em Arquivo
+## Identificacao
 
-## Alunos
-|Matrícula | Aluno |
-| 222006490 | Vinícius de Jesus Bessa Fernandes |
-| 202017049  |  Pedro Lucas Figueiredo Santana |
+| Item | Informacao |
+|---|---|
+| Disciplina | Estrutura de Dados |
+| Conteudo original | Busca Sequencial |
+| Conteudo atual | Ordenacao de Registros em Arquivo |
+| Aluno | Pedro Lucas Figueiredo Santana |
+| Matricula | 202017049 |
+| Linguagem | C |
 
-## O que neste repositório é de Busca
+## Visao geral
+
+Este repositorio comecou como um trabalho da materia voltado para **Busca** e foi ampliado com uma nova entrega de **Ordenacao**.
+
+- A parte antiga do projeto faz busca de livros em arquivo
+- A parte nova organiza os mesmos livros por `ISBN`
+- As duas partes continuam no mesmo repositorio, mas com executaveis separados
+
+## Estrutura do projeto
+
+### Parte de Busca
+
 - `main.c`: menu principal do trabalho de busca
 - `linear_search.h`: busca linear e busca com sentinela
-- `get_indexes.h`: leitura do arquivo e criação de índices por ISBN, título e autor
-- `add_book.h`, `remove_book.h`, `refresh_append.h`: manutenção do arquivo `books.txt`
-- `generate_data.h`: geração da base inicial
+- `get_indexes.h`: leitura do arquivo e criacao de indices por ISBN, titulo e autor
+- `add_book.h`, `remove_book.h`, `refresh_append.h`: manutencao do arquivo `books.txt`
+- `generate_data.h`: geracao da base inicial
 - `test/busca_linear_sentinela.c`: exemplos extras de buscas lineares
 
-## O que foi adicionado para Ordenação
-- `sorting_main.c`: menu principal da parte de ordenação
-- `sorting_support.h`: leitura, cópia, embaralhamento e impressão dos livros
-- `sorting_algorithms.h`: implementação de 9 algoritmos
+### Parte de Ordenacao
 
-Algoritmos implementados:
+- `sorting_main.c`: menu principal da parte de ordenacao
+- `sorting_support.h`: leitura, copia, embaralhamento e impressao dos livros
+- `sorting_algorithms.h`: implementacao dos algoritmos de ordenacao
+
+## Algoritmos implementados
+
+Os registros sao ordenados pelo campo `ISBN`.
+
 - Bubble Sort
 - Selection Sort
 - Insertion Sort
@@ -33,38 +50,48 @@ Algoritmos implementados:
 - Counting Sort
 - Radix Sort
 
-Todos ordenam os livros pelo campo `ISBN`.
+## Como executar
 
-## Screenshots
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+### Rodar a Busca
 
-## Como rodar a Busca
-Linguagem: C
-
-Inicie com:
+```bash
 gcc main.c -o main
 ./main
+```
 
-Siga os passos indicados pelo terminal;
+O programa abre um menu para inserir, remover e buscar livros no arquivo.
 
-## Como rodar a Ordenação
-Compile:
+### Rodar a Ordenacao
+
+```bash
 gcc sorting_main.c -o sorting_main
-
-Execute:
 ./sorting_main
+```
 
-Opções mais úteis:
-- `10`: demonstra Radix Sort com antes e depois
-- `11`: compara os 9 algoritmos no mesmo conjunto de livros
+Opcoes mais uteis do menu:
 
-## Explicação curta para apresentar
-- A parte de Busca trabalha com livros salvos em `books.txt` e pesquisa os registros usando busca linear e busca com sentinela.
-- A parte de Ordenação usa os mesmos livros, embaralha uma cópia em memória e depois ordena pelo ISBN.
-- No menu de comparação, cada algoritmo recebe a mesma entrada para facilitar a análise de desempenho.
+- `10`: demonstra o Radix Sort mostrando antes e depois
+- `11`: compara os 9 algoritmos usando a mesma entrada
 
-## Vídeos
-- [Gravação final explicando o projeto - YouTube](https://youtu.be/V84mxaMgRB4)
-- [Vídeo anterior explicando a parte de Busca - YouTube](https://youtu.be/RfvAWosSif8)
+## Como a Ordenacao funciona
+
+Na parte de ordenacao, o programa:
+
+1. le os livros salvos em `books.txt`
+2. faz uma copia desses registros em memoria
+3. embaralha essa copia para criar a entrada de teste
+4. aplica o algoritmo escolhido
+5. mostra o resultado ordenado pelo `ISBN`
+
+Na opcao de comparacao, todos os algoritmos recebem a mesma lista embaralhada. Isso deixa a comparacao mais justa.
+
+## Screenshots
+
+![Tela 1](image.png)
+![Tela 2](image-1.png)
+![Tela 3](image-2.png)
+
+## Videos
+
+- [Video atual da entrega de Ordenacao](https://youtu.be/V84mxaMgRB4)
+- [Video antigo da entrega de Busca](https://youtu.be/RfvAWosSif8)
